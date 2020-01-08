@@ -11,6 +11,7 @@ import com.isone.common.base.ResultData;
 import com.isone.exception.ServiceException;
 import com.isone.mapper.PhoneMapper;
 import com.isone.pojo.entity.PhoneDO;
+import com.isone.rabbit.producer.TestProducer;
 
 @RestController
 @RequestMapping("api/")
@@ -18,6 +19,9 @@ public class PhoneController {
 	@Autowired
 	private PhoneMapper mapper;
 
+	@Autowired
+	private TestProducer producer;
+	
 	@RequestMapping(value = "queryPhone",method = RequestMethod.GET)
 	public JSONPObject queryPhone(String num,String callback) {
 		PhoneDO phoneDo = mapper.queryByNum(num);
@@ -26,5 +30,19 @@ public class PhoneController {
 			throw new ServiceException("1000","没有此数据记录","数据异常");
 		}
 		return jsonpObject;
+	}
+	
+	/**
+	 * 
+	 * @Title: testMQ  
+	 * @Description:
+	 * @author: isonezj
+	 * @date 2020年1月8日
+	 */
+	@RequestMapping(value = "testMQ",method = RequestMethod.GET)
+	public void testMQ() {
+		producer.send("testDirectExchange", "test.Direct", "我是直连交换机啊");
+		producer.send("testTopicExchange", "test.topic.A", "我是主题交换机的 A 路由");
+		producer.send("testTopicExchange", "test.topic.B", "我是主题交换机的 B 路由");
 	}
 }
