@@ -1,0 +1,38 @@
+server:
+  port: 8012
+  
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://39.106.137.189:3306/mobile?useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: li19970712
+    redis:
+      host: 39.106.137.189
+      port: 6379
+      timeout: 3000
+      jedis:
+        pool:
+          max-active: 1000
+          max-idle: 50
+          min-idle: 5
+          max-wait: 10
+      
+    rabbitmq:
+      host: 39.106.137.189
+      port: 5672
+      username: isonezj
+      password: li19970712
+      
+          
+mybatis:
+  mapper-locations:
+  - classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.isone.pojo.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    
+logging:
+  level:
+    com.isone.mapper: debug    
+    
