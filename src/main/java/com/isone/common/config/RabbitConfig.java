@@ -22,6 +22,7 @@ public class RabbitConfig {
 		return new Queue("testTwo");
 	}
 
+	
 	@Bean(name = "testThree")
 	public Queue testThree() {
 		return new Queue("testThree");
