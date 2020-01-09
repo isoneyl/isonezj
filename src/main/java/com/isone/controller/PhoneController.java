@@ -1,5 +1,10 @@
 package com.isone.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,14 +27,19 @@ public class PhoneController {
 	@Autowired
 	private TestProducer producer;
 	
-	@RequestMapping(value = "queryPhone",method = RequestMethod.GET)
-	public JSONPObject queryPhone(String num,String callback) {
-		PhoneDO phoneDo = mapper.queryByNum(num);
-		JSONPObject jsonpObject = new JSONPObject(callback, new ResultData(phoneDo));
-		if(StringUtils.isEmpty(phoneDo)) {
-			throw new ServiceException("1000","没有此数据记录","数据异常");
-		}
-		return jsonpObject;
+	@RequestMapping(value = "query",method = RequestMethod.GET)
+	public List<Map<String,String>> queryPhone() {
+		Map<String,String> map = new HashMap<String,String>();
+		Map<String,String> map2 = new HashMap<String,String>();
+		Map<String,String> map3 = new HashMap<String,String>();
+		map.put("name", "张晶");
+		map2.put("name", "李云龙");
+		map3.put("name", "小宝宝");
+		List<Map<String,String>> list = new ArrayList<>();
+		list.add(map);
+		list.add(map2);
+		list.add(map3);
+		return list;
 	}
 	
 	/**
