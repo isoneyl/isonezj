@@ -67,7 +67,7 @@ public class RabbitConfig {
 	 * 绑定交换机和队列2
 	 */
 	@Bean
-	public Binding binding(@Qualifier(value = "testTwo") Queue testTwo,TopicExchange topicExchange) {
+	public Binding bindingTwo(@Qualifier(value = "testTwo") Queue testTwo,TopicExchange topicExchange) {
 		return BindingBuilder.bind(testTwo).to(topicExchange).with("test.topic.A");
 	}
 
@@ -75,7 +75,7 @@ public class RabbitConfig {
 	 * 绑定交换机和队列3
 	 */
 	@Bean
-	public Binding bindings(@Qualifier(value = "testThree") Queue testThree,TopicExchange topicExchange) {
+	public Binding bindingThree(@Qualifier(value = "testThree") Queue testThree,TopicExchange topicExchange) {
 		return BindingBuilder.bind(testThree).to(topicExchange).with("test.topic.B");
 	}
 	

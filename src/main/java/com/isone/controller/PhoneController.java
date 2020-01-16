@@ -24,7 +24,7 @@ public class PhoneController {
 		Map<String,String> map = new HashMap<String,String>();
 		Map<String,String> map2 = new HashMap<String,String>();
 		Map<String,String> map3 = new HashMap<String,String>();
-		map.put("name", "张晶");
+		map.put("name", "王二");
 		map2.put("name", "张三");
 		map3.put("name", "李四");
 		List<Map<String,String>> list = new ArrayList<>();
@@ -43,7 +43,7 @@ public class PhoneController {
 	 */
 	@RequestMapping(value = "testMQ",method = RequestMethod.GET)
 	public void testMQ() {
-		producer.send("testDirectExchange", "test.Direct", "我是直连交换机啊","我是直连交换机啊");
+		producer.send("testDirectExchange", "test.Direct", "我是直连交换机啊","消息ID值：001");
 		//producer.send("testTopicExchange", "test.topic.A", "我是主题交换机的 A 路由");
 		//producer.send("testTopicExchange", "test.topic.B", "我是主题交换机的 B 路由");
 	}
