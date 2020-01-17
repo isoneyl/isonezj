@@ -1,5 +1,7 @@
 package com.isone.pojo.entity;
 
+import java.util.Date;
+
 import com.isone.common.base.BaseDO;
 
 /**
@@ -20,11 +22,15 @@ public class UserDO extends BaseDO {
 	
 	private String userName;
 	
-	private String password;
+	private String userPwd;
 	
 	private String phone;
 	
 	private String addr;
+	
+	private Date createTime;
+	
+	private Date updateTime;
 
 	public Long getUserId() {
 		return userId;
@@ -42,12 +48,12 @@ public class UserDO extends BaseDO {
 		this.userName = userName;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getUserPwd() {
+		return userPwd;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUserPwd(String userPwd) {
+		this.userPwd = userPwd;
 	}
 
 	public String getPhone() {
@@ -66,10 +72,26 @@ public class UserDO extends BaseDO {
 		this.addr = addr;
 	}
 
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+
 	@Override
 	public String toString() {
-		return "UserDO [userId=" + userId + ", userName=" + userName + ", password=" + password + ", phone=" + phone
-				+ ", addr=" + addr + "]";
+		return "UserDO [userId=" + userId + ", userName=" + userName + ", userPwd=" + userPwd + ", phone=" + phone
+				+ ", addr=" + addr + ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
 	}
 	
 }

@@ -4,7 +4,7 @@ server:
 spring:
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://39.106.137.189:3306/mobile?useUnicode=true&characterEncoding=UTF-8
+        url: jdbc:mysql://39.106.137.189:3306/isonezj?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
         username: root
         password: li19970712
     redis:

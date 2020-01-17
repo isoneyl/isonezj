@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.isone.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="UserDO"></resultMap>
+  	
+  	<select id="pageByQuery"  resultMap="BaseResultMap">
+  		select * 
+  		from is_user
+  	</select>
+
+	<insert id="saveUser" parameterType="UserDO">
+		insert into is_user (
+		user_id,user_name,user_pwd,phone,
+		addr,create_time,update_time
+		)
+		values
+		(
+			#{userId,jdbcType=BIGINT},
+			#{userName,jdbcType=VARCHAR},
+			#{userPwd,jdbcType=VARCHAR},
+			#{phone,jdbcType=VARCHAR},
+			#{addr,jdbcType=VARCHAR},
+			#{createTime,jdbcType=TIMESTAMP},
+			#{updateTime,jdbcType=TIMESTAMP}
+		)
+	</insert>
+  	
+  </mapper>
